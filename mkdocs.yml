@@ -1,0 +1,28 @@
+site_name: pastacopy
+repo_url: https://github.com/yourusername/pastacopy
+repo_name: pastacopy
+theme:
+  name: material
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.emoji
+  - pymdownx.tasklist
+  - pymdownx.magiclink
+  - pymdownx.betterem
+  - pymdownx.tilde
+plugins:
+  - search
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/pastacopy
+
+nav:
+  - Home: index.md

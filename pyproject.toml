@@ -20,6 +20,9 @@ dev = [
     "ruff",
     "pytest"
 ]
+docs = [
+    "mkdocs-material",
+]
 
 [project.urls]
 Homepage = "https://eldarab.github.io/pastacopy/"
