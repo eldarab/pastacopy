@@ -105,3 +105,8 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
+
+# MkDocs build
+/site/
+*.lock
+*.log
