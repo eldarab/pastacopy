@@ -7,7 +7,6 @@ from pastacopy.clipboard_to_markdown import clipboard_to_markdown
 def empty_clip(monkeypatch):
     """Simulate a clipboard with no image or text."""
     monkeypatch.setattr("PIL.ImageGrab.grabclipboard", lambda: None)
-    monkeypatch.setattr("pyperclip.paste", lambda: "")
 
 
 @pytest.fixture
@@ -18,7 +17,6 @@ def png_clip(tmp_path, monkeypatch):
     img = tmp_path / "dummy.png"
     Image.new("RGB", (1, 1)).save(img)
     monkeypatch.setattr("PIL.ImageGrab.grabclipboard", lambda: str(img))
-    monkeypatch.setattr("pyperclip.paste", lambda: "")
     return img
 
 
