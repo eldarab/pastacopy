@@ -1,9 +1,10 @@
 import pyperclip
 
+
 def clipboard_to_markdown() -> str:
     """
     Converts the content of the clipboard to a Markdown formatted string.
-    
+
     Returns:
         str: The content of the clipboard formatted as Markdown.
     """

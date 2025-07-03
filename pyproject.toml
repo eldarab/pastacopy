@@ -15,5 +15,10 @@ dependencies = [
     "pyperclip"
 ]
 
+[project.optional-dependencies]
+dev = [
+    "ruff"
+]
+
 [project.urls]
 Homepage = "https://eldarab.github.io/pastacopy/"
