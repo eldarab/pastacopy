@@ -18,7 +18,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "ruff"
+    "ruff",
+    "pytest"
 ]
 
 [project.urls]
