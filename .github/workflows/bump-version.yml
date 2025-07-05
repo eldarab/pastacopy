@@ -37,6 +37,12 @@ jobs:
         env:
           BUMPVERSION_TAG: "true"   # enable tag & commit
 
+      - name: Push commit & tag
+        if: steps.bump.outputs.bumped == 'true'
+        run: |
+          git push origin HEAD:main
+          git push origin --tags
+
       - name: Announce bump
         if: steps.bump.outputs.bumped == 'true'
         run: |
