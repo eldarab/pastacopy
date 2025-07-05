@@ -22,22 +22,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0            # pull full history & tags
-          persist-credentials: true # keep GITHUB_TOKEN for push
+    #   - name: Checkout code
+    #     uses: actions/checkout@v4
+    #     with:
+    #       fetch-depth: 0            # pull full history & tags
+    #       persist-credentials: true # keep GITHUB_TOKEN for push
 
       - name: Bump version
         id: bump
         uses: callowayproject/bump-my-version@1.2.0
         with:
           args: ${{ inputs.bump-type }}
-        #   github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           BUMPVERSION_TAG: "true"   # enable tag & commit
 
-      - name: Announce bump
-        if: steps.bump.outputs.bumped == 'true'
-        run: |
-          echo "🔖 Version bumped from ${{ steps.bump.outputs.previous-version }} to ${{ steps.bump.outputs.current-version }}"
+    #   - name: Announce bump
+    #     if: steps.bump.outputs.bumped == 'true'
+    #     run: |
+    #       echo "🔖 Version bumped from ${{ steps.bump.outputs.previous-version }} to ${{ steps.bump.outputs.current-version }}"
