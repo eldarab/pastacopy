@@ -19,7 +19,16 @@ permissions:
   id-token: write
 
 jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bump version
+        uses: callowayproject/bump-my-version@1.2.0
+        with:
+          args: ${{ inputs.bump-type }}
+  
   build:
+    needs: bump-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,15 +41,6 @@ jobs:
         with:
           name: dist
           path: dist
-
-  bump-version:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Bump version
-        uses: callowayproject/bump-my-version@1.2.0
-        with:
-          args: ${{ inputs.bump-type }}
 
   publish:
     needs: bump-version
