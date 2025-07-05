@@ -12,6 +12,14 @@ on:
           - major
           - minor
           - patch
+      repository-url:
+        description: 'Repository URL'
+        required: true
+        default: 'https://test.pypi.org/legacy/'
+        type: choice
+        options:
+          - 'https://test.pypi.org/legacy/'
+          - 'https://upload.pypi.org/legacy/'
 
 permissions:
   contents: write
@@ -62,4 +70,4 @@ jobs:
       - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          repository-url: https://test.pypi.org/legacy/
+          repository-url: ${{ inputs.repository-url }}
