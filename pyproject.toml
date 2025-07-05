@@ -18,7 +18,8 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "ruff",
-    "pytest"
+    "pytest",
+    "bump-my-version"
 ]
 docs = [
     "mkdocs-material",

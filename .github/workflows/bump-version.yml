@@ -1,0 +1,58 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      part:
+        description: 'Part to bump (patch, minor, major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  bump-version:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install bump-my-version
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump version
+        run: |
+          bump-my-version bump ${{ github.event.inputs.part }}
+
+      - name: Push changes and tags
+        run: |
+          git push origin main --follow-tags
+
+      - name: Create Tag
+        run: |
+          git tag v$(grep -Po '(?<=version = ")([0-9]+\.[0-9]+\.[0-9]+)' pyproject.toml)
+          git push origin --tags
+
+# Note: Tag creation will trigger your pypi-publish workflow if it is set to run on tag push.
