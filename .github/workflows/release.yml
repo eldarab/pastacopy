@@ -45,6 +45,8 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: testpypi
     permissions:
       contents: read
       packages: write
