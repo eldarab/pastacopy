@@ -28,6 +28,10 @@ jobs:
           python-version: '3.12'
       - run: python3 -m pip install --upgrade build
       - run: python3 -m build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
 
   bump-version:
     needs: build
