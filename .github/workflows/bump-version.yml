@@ -35,8 +35,3 @@ jobs:
           args: ${{ inputs.bump-type }}
         env:
           BUMPVERSION_TAG: "true"   # enable tag & commit
-
-    #   - name: Announce bump
-    #     if: steps.bump.outputs.bumped == 'true'
-    #     run: |
-    #       echo "🔖 Version bumped from ${{ steps.bump.outputs.previous-version }} to ${{ steps.bump.outputs.current-version }}"
