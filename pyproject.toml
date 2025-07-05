@@ -27,3 +27,15 @@ docs = [
 
 [project.urls]
 Homepage = "https://eldarab.github.io/pastacopy/"
+
+[tool.bumpversion]
+current_version = "0.0.1"
+parse           = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+serialize       = ["{major}.{minor}.{patch}"]
+tag             = false
+commit          = false
+
+[[tool.bumpversion.files]]
+path    = "pyproject.toml"
+search  = 'current_version = "{current_version}"'
+replace = 'current_version = "{new_version}"'
