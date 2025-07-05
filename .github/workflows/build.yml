@@ -1,12 +1,13 @@
+name: Python Build
+
 on:
   workflow_run:
-    workflows: ["tests"]
+    workflows: ["Python Tests"]
     types:
       - completed
 
 jobs:
   build:
-    # only run if the tests.yml workflow completed successfully
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
