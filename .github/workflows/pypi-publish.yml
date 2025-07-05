@@ -1,16 +1,12 @@
-# .github/workflows/pypi-publish.yml
+name: PyPI Publish
+
 on:
-  workflow_run:
-    workflows: ["bump-version"]
-    types:
-      - completed
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   publish:
-    # only on a successful build of a tag like v1.2.3
-    if: >
-      github.event.workflow_run.conclusion == 'success' &&
-      startsWith(github.event.workflow_run.head_branch, 'v')
     runs-on: ubuntu-latest
     permissions:
       contents: read
