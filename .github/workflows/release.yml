@@ -1,4 +1,4 @@
-name: Bump & Publish
+name: Python Release
 
 on:
   workflow_dispatch:
@@ -29,10 +29,8 @@ jobs:
         with:
           args: ${{ inputs.bump-type }}
       
-      - uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist
+      - name: Build
+        uses: ./.github/workflows/build.yml  # python version configured in build.yml
 
       - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
