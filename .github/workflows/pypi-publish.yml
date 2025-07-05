@@ -35,9 +35,7 @@ jobs:
         run: |
           python -m build
 
-      - name: Publish package to PyPI
+      - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          # No username/password/API token needed; OIDC is used
-          # See https://docs.pypi.org/trusted-publishers/using-a-publisher/
-          skip-existing: true
+          repository-url: https://test.pypi.org/legacy/
