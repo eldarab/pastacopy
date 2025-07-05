@@ -28,7 +28,7 @@ jobs:
         with:
           args: ${{ inputs.bump-type }}
 
-  build:
+  build-job:
     needs: bump-version
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +41,7 @@ jobs:
       - run: python -m build
 
   publish:
-    needs: build
+    needs: build-job
     runs-on: ubuntu-latest
     steps:
       - name: Publish to TestPyPI
