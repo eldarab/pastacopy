@@ -1,5 +1,5 @@
 site_name: pastacopy
-repo_url: https://github.com/yourusername/pastacopy
+repo_url: https://github.com/eldarab/pastacopy
 repo_name: pastacopy
 theme:
   name: material
@@ -22,7 +22,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername/pastacopy
+      link: https://github.com/eldarab/pastacopy
 
 nav:
   - Home: index.md
