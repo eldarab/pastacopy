@@ -20,6 +20,14 @@ on:
         options:
           - 'https://test.pypi.org/legacy/'
           - 'https://upload.pypi.org/legacy/'
+      environment:
+        description: 'Environment name'
+        required: true
+        default: 'testpypi'
+        type: choice
+        options:
+          - testpypi
+          - pypi
 
 permissions:
   contents: write
@@ -54,7 +62,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: testpypi
+      name: ${{ inputs.environment }}
     permissions:
       contents: read
       packages: write
