@@ -33,7 +33,7 @@ jobs:
         uses: callowayproject/bump-my-version@1.2.0
         with:
           args: ${{ inputs.bump-type }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        #   github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           BUMPVERSION_TAG: "true"   # enable tag & commit
 
