@@ -32,8 +32,8 @@ Homepage = "https://eldarab.github.io/pastacopy/"
 current_version = "0.0.1"
 parse           = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize       = ["{major}.{minor}.{patch}"]
-tag             = false
-commit          = false
+tag             = true
+commit          = true
 
 [[tool.bumpversion.files]]
 filename = "pyproject.toml"
