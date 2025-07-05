@@ -36,6 +36,6 @@ tag             = false
 commit          = false
 
 [[tool.bumpversion.files]]
-path    = "pyproject.toml"
-search  = 'current_version = "{current_version}"'
-replace = 'current_version = "{new_version}"'
+filename = "pyproject.toml"
+search   = 'current_version = "{current_version}"'
+replace  = 'current_version = "{new_version}"'
