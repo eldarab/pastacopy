@@ -1,3 +1,3 @@
 # pastacopy
 
-Magical copy-paste utils.
+Magical copy-paste utils
