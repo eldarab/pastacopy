@@ -1,3 +1,4 @@
+# .github/workflows/release.yml
 name: Python Release
 
 on:
@@ -19,19 +20,22 @@ permissions:
   id-token: write
 
 jobs:
-  release:
-    if: github.ref == 'refs/heads/main'
+  bump-version:
     runs-on: ubuntu-latest
-
     steps:
       - name: Bump version
         uses: callowayproject/bump-my-version@1.2.0
         with:
           args: ${{ inputs.bump-type }}
-      
-      - name: Build
-        uses: ./.github/workflows/build.yml  # python version configured in build.yml
 
+  build:
+    needs: bump-version
+    uses: ./.github/workflows/build.yml  # python-version is configured under build.yml
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
