@@ -3,15 +3,18 @@ name: Bump Version
 on:
   workflow_dispatch:
     inputs:
-      part:
+      bump-type:
         description: 'Bump type'
         required: true
         default: 'patch'
         type: choice
         options:
-          - patch
-          - minor
           - major
+          - minor
+          - patch
+
+permissions:
+  contents: write
 
 jobs:
   bump-version:
@@ -22,21 +25,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0           # so we get the full history & tags
-          persist-credentials: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install bump-my-version
-        run: pip install bump-my-version
+          fetch-depth: 0            # pull full history & tags
+          persist-credentials: true # keep GITHUB_TOKEN for push
 
       - name: Bump version
-        run: bump-my-version bump "${{ github.event.inputs.part }}" --commit --tag
+        id: bump
+        uses: callowayproject/bump-my-version@1.2.0
+        with:
+          args: ${{ inputs.bump-type }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          BUMPVERSION_TAG: "true"   # enable tag & commit
 
-      - name: Push version bump
+      - name: Announce bump
+        if: steps.bump.outputs.bumped == 'true'
         run: |
-          git push origin HEAD:main
-          git push origin --tags
+          echo "🔖 Version bumped from ${{ steps.bump.outputs.previous-version }} to ${{ steps.bump.outputs.current-version }}"
