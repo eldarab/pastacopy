@@ -43,7 +43,7 @@ jobs:
           path: dist
 
   publish:
-    needs: bump-version
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Publish to TestPyPI
