@@ -19,10 +19,11 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
+  - literate-nav
+  - gen-files:
+      scripts:
+        - scripts/copy_readme_to_index.py
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/eldarab/pastacopy
-
-nav:
-  - Home: index.md

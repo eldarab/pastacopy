@@ -23,6 +23,9 @@ dev = [
 ]
 docs = [
     "mkdocs-material",
+    "mkdocs-gen-files",
+    "mkdocs-literate-nav",
+    "mkdocs-awesome-nav"
 ]
 
 [project.urls]
