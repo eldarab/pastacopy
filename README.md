@@ -1,3 +1,3 @@
 # pastacopy
 
-Magical copy-paste utils kaki
+Magical copy-paste utils

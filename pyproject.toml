@@ -25,7 +25,8 @@ docs = [
     "mkdocs-material",
     "mkdocs-gen-files",
     "mkdocs-literate-nav",
-    "mkdocs-awesome-nav"
+    "mkdocs-awesome-nav",
+    "mkdocs-jupyter"
 ]
 
 [project.urls]
