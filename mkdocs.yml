@@ -1,6 +1,12 @@
 site_name: pastacopy
 repo_url: https://github.com/eldarab/pastacopy
 repo_name: pastacopy
+
+watch:
+  - scripts/copy_readme_to_index.py
+  - mkdocs.yml
+  - README.md
+
 theme:
   name: material
   features:
@@ -29,7 +35,6 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
-  - literate-nav
   - mkdocs-jupyter:
       execute: false
   - gen-files:
@@ -40,7 +45,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/eldarab/pastacopy
 
-watch:
-  - scripts/copy_readme_to_index.py
-  - mkdocs.yml
-  - README.md
+nav:
+  - Home: index.md
+  - Example Notebooks: 
+    - Demo: example_notebooks/demo.ipynb
