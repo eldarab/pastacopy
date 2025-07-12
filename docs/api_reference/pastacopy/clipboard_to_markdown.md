@@ -1,0 +1,1 @@
+::: pastacopy.clipboard_to_markdown

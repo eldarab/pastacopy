@@ -3,7 +3,9 @@ repo_url: https://github.com/eldarab/pastacopy
 repo_name: pastacopy
 
 watch:
-  - scripts/copy_readme_to_index.py
+  - scripts/generate_api_reference.py
+  - scripts/generate_example_notebooks.py
+  - scripts/generate_home_from_readme.py
   - mkdocs.yml
   - README.md
 
@@ -36,16 +38,16 @@ markdown_extensions:
 plugins:
   - search
   - section-index
-  - literate-nav:
-      nav_file: SUMMARY.md
+  - literate-nav
   - mkdocstrings:
       default_handler: python
   - mkdocs-jupyter:
       execute: false
   - gen-files:
       scripts:
-        - scripts/copy_readme_to_index.py
-        - scripts/gen_ref_pages.py
+        - scripts/generate_api_reference.py
+        - scripts/generate_example_notebooks.py
+        - scripts/generate_home_from_readme.py
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -54,5 +56,5 @@ extra:
 nav:
   - Home: index.md
   - API Reference: api_reference/
-  - Example Notebooks: 
-    - Demo: example_notebooks/demo.ipynb
+  - Example Notebooks: example_notebooks/
+    # - Demo: example_notebooks/demo.ipynb
