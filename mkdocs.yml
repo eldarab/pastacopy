@@ -45,6 +45,8 @@ plugins:
           docstring_style: google
           options:
             docstring_section_style: list
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
 
   - mkdocs-jupyter:
       execute: false
