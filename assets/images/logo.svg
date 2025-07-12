@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 256 256"
+     stroke="#ffffff"
+     fill="none"
+     stroke-width="12"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+  <!-- clipboard outline -->
+  <rect x="48" y="40" width="160" height="200" rx="16" ry="16"/>
+
+  <!-- clip at the top -->
+  <path d="M96 40v-8a32 32 0 0 1 64 0v8"/>
+  <rect x="96" y="40" width="64" height="32" rx="8" ry="8"/>
+
+  <!-- plate -->
+  <ellipse cx="128" cy="176" rx="64" ry="16"/>
+
+  <!-- spaghetti swirls -->
+  <circle cx="96"  cy="136" r="24"/>
+  <circle cx="128" cy="152" r="24"/>
+  <circle cx="160" cy="136" r="24"/>
+
+  <!-- fork -->
+  <line x1="176" y1="112" x2="224" y2="80"/>
+  <line x1="224" y1="80" x2="220" y2="88"/>
+  <line x1="224" y1="80" x2="232" y2="84"/>
+  <line x1="224" y1="80" x2="228" y2="72"/>
+
+</svg>
