@@ -40,7 +40,12 @@ plugins:
   - section-index
   - literate-nav
   - mkdocstrings:
-      default_handler: python
+      handlers: 
+        python:
+          docstring_style: google
+          options:
+            docstring_section_style: list
+
   - mkdocs-jupyter:
       execute: false
   - gen-files:
@@ -57,4 +62,3 @@ nav:
   - Home: index.md
   - API Reference: api_reference/
   - Example Notebooks: example_notebooks/
-    # - Demo: example_notebooks/demo.ipynb
