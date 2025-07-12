@@ -11,6 +11,7 @@ watch:
 
 theme:
   name: material
+  logo: assets/images/logo.svg
   palette:
     - scheme: slate          # dark mode first = default
       primary: indigo
