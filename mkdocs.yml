@@ -18,13 +18,13 @@ theme:
       primary: custom
       accent: custom
       toggle:
-        icon: material/weather-sunny
+        icon: fontawesome/solid/sun
         name: Switch to light mode
     - scheme: default        # light mode second
       primary: custom
       accent: custom
       toggle:
-        icon: material/weather-night
+        icon: fontawesome/solid/moon
         name: Switch to dark mode
   features:
     - navigation.tabs
