@@ -12,16 +12,17 @@ watch:
 theme:
   name: material
   logo: assets/images/logo.svg
+  favicon: assets/images/logo.svg
   palette:
     - scheme: slate          # dark mode first = default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
     - scheme: default        # light mode second
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
@@ -35,6 +36,9 @@ theme:
     - navigation.indexes
     - navigation.tabs.sticky
     - navigation.tabs.sticky.scrollable
+
+extra_css:
+  - overrides/styles/colors.css
 
 markdown_extensions:
   - toc:
