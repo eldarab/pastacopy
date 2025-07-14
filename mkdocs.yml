@@ -13,6 +13,8 @@ theme:
   name: material
   logo: assets/images/logo.svg
   favicon: assets/images/logo.svg
+  icon:
+    repo: fontawesome/brands/github
   palette:
     - scheme: slate          # dark mode first = default
       primary: custom
