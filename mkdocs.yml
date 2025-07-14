@@ -39,6 +39,7 @@ theme:
     - navigation.indexes
     - navigation.tabs.sticky
     - navigation.tabs.sticky.scrollable
+    - content.code.copy
 
 extra_css:
   - overrides/styles/colors.css
@@ -56,6 +57,9 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.betterem
   - pymdownx.tilde
+  - pymdownx.highlight:
+      use_pygments: true
+
 plugins:
   - search
   - section-index
