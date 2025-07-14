@@ -1,6 +1,7 @@
 site_name: pastacopy
 repo_url: https://github.com/eldarab/pastacopy
 repo_name: pastacopy
+copyright: Built and maintained with ❤️ by <a href="https://eldarab.github.io/">Eldar Abraham</a>
 
 watch:
   - scripts/generate_api_reference.py
@@ -76,6 +77,7 @@ plugins:
         - scripts/generate_example_notebooks.py
         - scripts/generate_home_from_readme.py
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/eldarab/pastacopy
