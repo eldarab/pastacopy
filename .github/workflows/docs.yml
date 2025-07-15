@@ -9,23 +9,15 @@ permissions:
 
 jobs:
   ci:
-    uses: ./.github/workflows/python-ci.yml
-    with:
-      python-versions: '["3.12"]'
-      test-command: 'pytest'
+    uses: ./.github/workflows/ci.yml
 
   deploy:
     runs-on: ubuntu-latest
     needs: ci
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: ./.github/actions/python-setup
         with:
-          python-version: '3.12'
-
-      - name: Install docs dependencies
-        run: |
-          pip install .[docs]
+          python-version: 3.12
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force

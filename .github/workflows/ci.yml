@@ -1,0 +1,33 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.8, 3.9, 3.10, 3.11, 3.12]
+    steps:
+      - uses: ./.github/actions/python-setup
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Ruff Lint
+        uses: astral-sh/ruff-action@v1
+        with:
+          args: check src/
+      - name: Ruff Format Check
+        uses: astral-sh/ruff-action@v1
+        with:
+          args: format --check src/
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.8, 3.9, 3.10, 3.11, 3.12]
+    steps:
+      - uses: ./.github/actions/python-setup
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Run tests
+        run: pytest
