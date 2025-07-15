@@ -22,8 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Bump, commit, tag & push
+      - name: Bump version
         uses: callowayproject/bump-my-version@1.2.0
         with:
-          args: >-
-            ${{ inputs.bump-type }} --commit --tag --push
+          args: ${{ inputs.bump-type }}
