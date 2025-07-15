@@ -9,10 +9,13 @@ def clipboard_to_markdown() -> str:
 
     Returns:
         str: A Markdown image tag with the image encoded as base64, or an error message.
+
+    Raises:
+        ValueError: If the clipboard does not contain an image.
     """
     image = ImageGrab.grabclipboard()
     if not isinstance(image, ImageGrab.Image.Image):
-        return "No image found in clipboard."
+        raise ValueError("Clipboard does not contain an image.")
 
     buffered = io.BytesIO()
     image.save(buffered, format="PNG")
