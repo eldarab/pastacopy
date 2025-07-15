@@ -1,4 +1,4 @@
-# pastacopy
+# [pastacopy](https://eldarab.github.io/pastacopy/)
 
 Magical copy-paste utils
 
