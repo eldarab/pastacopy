@@ -45,17 +45,16 @@ jobs:
       name: ${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v4
+
       - name: Bump version
         uses: callowayproject/bump-my-version@1.2.0
         with:
           args: ${{ inputs.bump-type }}
-      - uses: ./.github/actions/python-setup
+
+      - uses: ./.github/actions/python-build
         with:
           python-version: "3.12"
-      - name: Build wheel
-        run: |
-          python -m pip install --upgrade pip
-          pip install build
+      
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
