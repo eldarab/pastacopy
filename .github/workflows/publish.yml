@@ -1,4 +1,4 @@
-name: Python Release
+name: Bump version and Publish to PyPI
 
 on:
   workflow_dispatch:
