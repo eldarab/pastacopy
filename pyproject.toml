@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pastacopy"
-version = "0.1.4"
+version = "0.1.5"
 description = "Magical copy-paste utils."
 authors = [
     { name = "Eldar Abraham", email = "your.email@example.com" }
@@ -34,7 +34,7 @@ docs = [
 Homepage = "https://eldarab.github.io/pastacopy/"
 
 [tool.bumpversion]
-current_version = "0.1.4"
+current_version = "0.1.5"
 parse           = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize       = ["{major}.{minor}.{patch}"]
 tag             = true
