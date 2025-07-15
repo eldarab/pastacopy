@@ -25,7 +25,6 @@ docs = [
     "mkdocs-material",
     "mkdocs-gen-files",
     "mkdocs-literate-nav",
-    "mkdocs-awesome-nav",
     "mkdocs-jupyter",
     "mkdocstrings[python]",
     "mkdocs-section-index"
