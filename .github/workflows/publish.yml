@@ -1,8 +1,9 @@
 name: Publish to PyPI
 
 on:
-  push:
-    tags: ['v*.*.*']
+  workflow_run:
+    workflows: ["Bump version"]
+    types: [completed]
 
 permissions:
   contents: write
@@ -11,11 +12,15 @@ permissions:
 
 jobs:
   publish:
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
+    environment: pypi
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
 
       - uses: ./.github/actions/python-build
         with:
